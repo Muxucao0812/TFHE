@@ -18,8 +18,8 @@ class Torus:
         new.q = self.q
         return new
 
-    @classmethod
-    def from_real(cls, value):
+
+    def from_real(self, value):
         """
         Takes a real number from [0, 1) and outputs a Torus object representing it
         """
@@ -28,7 +28,7 @@ class Torus:
                 f"Warning: value {value} is not in the range [0, 1), it will be converted into a real modulo 1 = {value % 1}"
             )
         value = value % 1
-        return Torus((value * cls.q) % cls.q)
+        return Torus((value * self.q) % self.q)
 
     def to_real(self, p):
         """
@@ -39,8 +39,8 @@ class Torus:
         rounded = np.uint64(np.round(self.data / (self.q / p)))
         return rounded / p
 
-    @classmethod
-    def from_int(cls, value, p):
+    
+    def from_int(self, value, p):
         """
         Takes an integer number in [0, p) and outputs a Torus object representing it
         using log2(p) bits of precision
@@ -50,7 +50,7 @@ class Torus:
                 f"Warning: value {value} is not in the range [0, p), it will be converted into an integer modulo p = {value % p}"
             )
         value = int(value % p)
-        return Torus((value * (cls.q / p)) % cls.q)
+        return Torus((value * (self.q / p)) % self.q)
 
     def to_int(self, p):
         """
@@ -59,8 +59,8 @@ class Torus:
         """
         return np.uint64(np.round(self.data / (self.q / p))) % np.uint64(p)
 
-    @classmethod
-    def from_float(cls, value, p, data_range):
+    
+    def from_float(self, value, p, data_range):
         """
         Takes a float number in [data_range[0], data_range[1]) and outputs a Torus object representing it
         using log2(p) bits of precision
@@ -83,7 +83,7 @@ class Torus:
         value = float((value - offset) % delta)
         step = delta / p
         int_value = round(value / step) % p
-        return Torus((int_value * (cls.q / p)) % cls.q)
+        return Torus((int_value * (self.q / p)) % self.q)
 
     def to_float(self, p, data_range):
         """

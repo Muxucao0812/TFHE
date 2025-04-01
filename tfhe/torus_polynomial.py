@@ -1,5 +1,7 @@
 import numpy as np
-from tfhe.poly import polymod
+import sys
+sys.path.append('/Users/mengxiangchen/Documents/Code/TFHE')
+from tfhe.poly import polymod, polymul
 
 
 class TorusPolynomial:
@@ -209,6 +211,8 @@ class TorusPolynomial:
             other = np.uint64(other)
         if isinstance(other, np.uint64):
             return TorusPolynomial(self.data * other, big_n=self.big_n)
+        if isinstance(other, TorusPolynomial):
+            raise NotImplementedError("Polynomial multiplication not implemented yet")
         else:
             raise TypeError(
                 f"doesn't support multiplication of torus elements with {type(other)}"
