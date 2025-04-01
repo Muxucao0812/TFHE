@@ -1,7 +1,48 @@
-## TFHE
+# TFHE 实现
 
-Implementation of the [TFHE](https://eprint.iacr.org/2018/421.pdf) homomorphic encryption scheme.
+> 这是一个学习性质的[TFHE](https://eprint.iacr.org/2018/421.pdf)同态加密方案实现。
 
-#### Disclaimer
+![Status](https://img.shields.io/badge/状态-开发中-yellow)
+![Version](https://img.shields.io/badge/版本-0.1.0-blue)
 
-Not meant to be secure, efficient, or production-ready.
+## 📋 项目概述
+
+本项目旨在实现TFHE（全同态加密）方案的核心功能，用于教育和研究目的。TFHE允许在加密数据上进行计算，而无需先解密，是现代密码学中的重要研究方向。
+
+## ⚙️ 当前实现状态
+
+| 组件 | 状态 | 说明 |
+|------|------|------|
+| Torus元素 | ✅ 已完成 | 基本环上元素和操作已实现 |
+| 多项式加法 | ✅ 已完成 | 多项式加法和减法运算正常工作 |
+| 多项式乘法 | ❌ 未完成 | **测试用例已添加，但实际实现尚未完成** |
+| 密钥生成 | 🚧 开发中 | 尚未实现 |
+| 加密/解密 | 🚧 开发中 | 尚未实现 |
+| 同态运算 | 🚧 开发中 | 尚未实现 |
+
+## 🚀 快速开始
+
+### 运行测试
+
+测试套件可以直接使用Python运行：
+
+```bash
+# 测试环上操作
+python tests/test_torus.py
+
+# 测试多项式操作
+python tests/test_torus_polynomial.py
+```
+
+### 开发路线图
+
+1. ✅ 完成环上基本元素的实现
+2. ✅ 实现多项式加法和减法
+3. ⬜ 实现多项式乘法
+4. ⬜ 实现密钥生成功能
+5. ⬜ 实现加密和解密功能
+6. ⬜ 实现同态运算
+
+## ⚠️ 免责声明
+
+此实现不适用于生产环境，不保证安全性、效率或完整性。仅用于学习和研究目的。
